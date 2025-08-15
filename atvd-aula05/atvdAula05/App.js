@@ -13,9 +13,9 @@ export default function App() {
     setforma(' ')
   }
 
-  const forma1 = 'borderRadius: 10, \nbackgroundColor: #D2C98A,\n borderColor: #000000';
-  const forma2 = 'backgroundColor: #FD9584';
-  const forma3 = 'backgroundColor: #A66D45';
+  const forma1 = 'borderRadius: 10,\nbackgroundColor: #D2C98A,\nborderColor: #000000';
+  const forma2 = 'backgroundColor: #FD9584,\nheight: 150';
+  const forma3 = 'borderRadius: 50,\nbackgroundColor: #A66D45';
   const forma4 = 'backgroundColor: #F6B6A7';
   const forma5 = 'backgroundColor: #F3EAD6';
   const forma6 = 'backgroundColor: #A7A155';
@@ -32,9 +32,9 @@ export default function App() {
         <TouchableOpacity style={styles.amarelo} onPress={() => botao(forma4)} />
       </View>
 
-      <View style={styles.linha}>
+      <View style={styles.linha2}>
         <Text style={styles.text}>{forma}</Text>
-        <TouchableOpacity onPress={() => limpar(forma)}><Text>Limpar</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => limpar(forma)} style={styles.botaoLimpar}><Text style={styles.textLimpar}>Limpar</Text></TouchableOpacity>
       </View>
     </View>
   );

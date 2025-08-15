@@ -1,18 +1,24 @@
 import { StyleSheet, Image } from "react-native";
 
 export const styles = StyleSheet.create({
-    container: {
-        flex: 1
+container: {
+    flex: 1
 
-    },
-    linha: {
-        flex: 1,
-        flexDirection: 'row'
-    },
-    area1: {
+},
+linha: {
+    flex: 1,
+    flexDirection: 'row'
+},
+linha2: {
+    flex: 1,
+    flexDirection: 'col',
+    justifyContent: 'center',
+    alignItems: 'center'
+},
+area1: {
     flex: 1
 },
-    rosa: {
+rosa: {
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
@@ -21,15 +27,15 @@ export const styles = StyleSheet.create({
     border: 1,
     borderColor: '#000000'
 },
-    roxo: {
+roxo: {
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#FD9584',
     borderColor: '1 gray',
-    height: 50
+    height: 150
 },
-    azul: {
+azul: {
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
@@ -37,28 +43,38 @@ export const styles = StyleSheet.create({
     backgroundColor: '#A66D45',
     borderColor: 'brown'
 },
-    amarelo: {
+amarelo: {
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F6B6A7',
     borderColor: 'lightblue'
 },
-    ciano: {
+ciano: {
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F3EAD6'
 },
-    verde: {
+verde: {
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#A7A155'
 },
 text: {
-    color: '#000',
+    color: '#000000',
     fontSize: 20
+},
+textLimpar: {
+    color: '#ffffff',
+    fontWeight: 'bold'
+},
+botaoLimpar: {
+    marginTop: 20,
+    backgroundColor: 'red',
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+    borderRadius: 6,
 }
-
 })
