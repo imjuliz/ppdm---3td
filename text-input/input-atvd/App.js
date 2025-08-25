@@ -2,61 +2,91 @@ import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-nativ
 import { useState } from 'react';
 
 export default function App() {
+  // const [peso, setPeso] = useState('');
+  // const [altura, setAltura] = useState('');
+  // const [imcResult, setImcResult] = useState('');
+  // const [estado, setEstado] = useState('');
+
+  // function calcularIMC() {
+  //   const pesoNum = parseFloat(peso);
+  //   const alturaNum = parseFloat(altura) / 100; // converte cm para m
+  
+  //   if (!pesoNum || !alturaNum) {
+  //     alert('Informe peso e altura válidos!');
+  //     return;
+  //   }
+  
+  //   const imc = pesoNum / (alturaNum * alturaNum);
+  //   setImcResult(imc.toFixed(2));
+  
+  //   if (imc < 18.5) setEstado('Abaixo do peso');
+  //   else if (imc < 25) setEstado('Peso normal');
+  //   else if (imc < 30) setEstado('Sobrepeso');
+  //   else setEstado('Obesidade');
+  // }  
+
+  // function limpar() {
+  //   setPeso('');
+  //   setAltura('');
+  //   setImcResult('');
+  //   setEstado('');
+  // }
+
+  // return (
+  //   <View style={styles.container}>
+  //     <View style={styles.viewsInput}>
+  //       <Text style={styles.titulo}>Calcule seu IMC</Text>
+  //       <TextInput keyboardType="decimal-pad" style={styles.inputs} placeholder='Informe seu peso...' value={peso} onChangeText={setPeso} />
+  //       <TextInput keyboardType="decimal-pad" style={styles.inputs} placeholder='Informe sua altura...' value={altura} onChangeText={setAltura} />
+  //     </View>
+
+  //     <View style={styles.viewBotoes}>
+  //       <TouchableOpacity onPress={calcularIMC} style={styles.botaoEnviar}>
+  //         <Text style={styles.textLimpar}>Enviar</Text>
+  //       </TouchableOpacity>
+  //       <TouchableOpacity onPress={limpar} style={styles.botaoLimpar}>
+  //         <Text style={styles.textLimpar}>Limpar</Text>
+  //       </TouchableOpacity>
+  //     </View>
+
+  //     <View style={styles.viewResultados}>
+  //       <Text>IMC: {imcResult}</Text>
+  //       <Text>Estado: {estado}</Text>
+  //     </View>
+  //   </View>
+  // );
+
+  // --------------------------------------------------- correcao
+
   const [peso, setPeso] = useState('');
   const [altura, setAltura] = useState('');
-  const [imcResult, setImcResult] = useState('');
+  const [imc, setImc] = useState('');
   const [estado, setEstado] = useState('');
+  const [textoImc, setTextoImc] = useState('');
 
-  function calcularIMC() {
-    const pesoNum = parseFloat(peso);
-    const alturaNum = parseFloat(altura) / 100; // converte cm para m
-  
-    if (!pesoNum || !alturaNum) {
-      alert('Informe peso e altura válidos!');
-      return;
+  // funcao p fazer o tratamento de evento de calculat imc
+  const calcularImc  = () =>{
+    if (peso != '' && altura != '' && !NaN(peso) && !NaN(altura)){
+      const imcCalculado = peso / altura ** 2;
+      setImc(imcCalculado.toFixed(1));
+      setTextoImc('Imc: ');
+
+      const estadoPessoa = (imcCalculado < 17 ? 'Muito abaixo do peso' : (imcCalculado >= 17 && imcCalculado < 18.5) ? 'Abaixo do peso' : (imcCalculado >= 18.5 && imcCalculado < ))
     }
-  
-    const imc = pesoNum / (alturaNum * alturaNum);
-    setImcResult(imc.toFixed(2));
-  
-    if (imc < 18.5) setEstado('Abaixo do peso');
-    else if (imc < 25) setEstado('Peso normal');
-    else if (imc < 30) setEstado('Sobrepeso');
-    else setEstado('Obesidade');
-  }  
-
-  function limpar() {
-    setPeso('');
-    setAltura('');
-    setImcResult('');
-    setEstado('');
   }
 
-  return (
+  return(
     <View style={styles.container}>
-      <View style={styles.viewsInput}>
         <Text style={styles.titulo}>Calcule seu IMC</Text>
-        <TextInput keyboardType="decimal-pad" style={styles.inputs} placeholder='Informe seu peso...' value={peso} onChangeText={setPeso} />
-        <TextInput keyboardType="decimal-pad" style={styles.inputs} placeholder='Informe sua altura...' value={altura} onChangeText={setAltura} />
-      </View>
 
-      <View style={styles.viewBotoes}>
-        <TouchableOpacity onPress={calcularIMC} style={styles.botaoEnviar}>
-          <Text style={styles.textLimpar}>Enviar</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={limpar} style={styles.botaoLimpar}>
-          <Text style={styles.textLimpar}>Limpar</Text>
-        </TouchableOpacity>
-      </View>
 
-      <View style={styles.viewResultados}>
-        <Text>IMC: {imcResult}</Text>
-        <Text>Estado: {estado}</Text>
+
+        <Text>{textoImc} {imc}</Text>
+       <Text>{estadoPessoa}</Text>
       </View>
-    </View>
-  );
+  )
+     
 }
-
 
 const styles = StyleSheet.create({
   container: {
